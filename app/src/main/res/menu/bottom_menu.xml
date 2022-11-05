@@ -18,8 +18,7 @@
         android:id="@+id/holder"
         android:title=""
         app:showAsAction="ifRoom"
-        android:enabled="false"
-        />
+        android:enabled="false" />
 
     <item
         android:id="@+id/edit"
