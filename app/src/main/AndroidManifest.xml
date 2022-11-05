@@ -17,9 +17,6 @@
             android:name=".login"
             android:exported="false" />
         <activity
-            android:name=".favorito"
-            android:exported="false" />
-        <activity
             android:name=".post"
             android:exported="false" />
         <activity
