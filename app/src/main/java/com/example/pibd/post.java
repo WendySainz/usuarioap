@@ -1,6 +1,8 @@
 package com.example.pibd;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,7 +21,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class post extends AppCompatActivity {
 
     ImageView atras;
-    Button contacto;
+    Button contactar;
     Intent a;
     TextView T1;
     TextView T2;
@@ -35,6 +37,7 @@ public class post extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +47,7 @@ public class post extends AppCompatActivity {
         mFirestore = FirebaseFirestore.getInstance();
 
         atras = (ImageView) findViewById(R.id.xmlimg);
-        contacto = (Button) findViewById(R.id.xmlcontacto);
+        contactar = (Button) findViewById(R.id.btncontactar);
 
         T1 = findViewById(R.id.textView);
         T2 = findViewById(R.id.textView2);
@@ -55,6 +58,18 @@ public class post extends AppCompatActivity {
         T7 = findViewById(R.id.textView9);
         T8 = findViewById(R.id.textView10);
         T9 = findViewById(R.id.textView11);
+
+        //CONFIGURACION BOTON WHATSAPP
+        contactar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String wpurl="https://wa.me/+523141471226?text= Quiero recibir información";
+
+                Intent intent=new Intent (Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(wpurl));
+                startActivity(intent);
+            }
+        });
 
         getPost(id);
         atras.setOnClickListener(new View.OnClickListener() {
@@ -93,4 +108,5 @@ public class post extends AppCompatActivity {
             }
         });
     }
+
 }

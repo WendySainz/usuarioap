@@ -19,6 +19,7 @@
             android:background="#B2F4F4F4"
             android:gravity="center_horizontal"/>
 
+        <!-- BUSQUEDA POR OPCIONES HORIZONTAL -->
         <HorizontalScrollView
             android:layout_below="@+id/searchView2"
             android:id="@+id/horizontalscroll"
