@@ -29,9 +29,9 @@ public class registro extends AppCompatActivity {
     private FirebaseAuth mAuth;
     //Declaramos las variables
     TextView mLoginBtn;
-    EditText mFullName, mEmail, mPassword, mPhone;
+    EditText mFullName, mEmail, mPassword, mPhone, Edad;
     Button mRegisterBtn;
-    String email, password, Name, Mphone;
+    String email, password, Name, Mphone, age;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
@@ -45,6 +45,8 @@ public class registro extends AppCompatActivity {
         mEmail = findViewById(R.id.Email);
         mPassword = findViewById(R.id.password);
         mPhone = findViewById(R.id.phone);
+        Edad = findViewById(R.id.age);
+
         mRegisterBtn = findViewById(R.id.registerBtn);
 
         //Mediante el evento click del boton obtenemos los valore que vienen desde el edit text
@@ -55,8 +57,9 @@ public class registro extends AppCompatActivity {
                 password = mPassword.getText().toString();
                 Name = mFullName.getText().toString();
                 Mphone = mPhone.getText().toString();
+                age = Edad.getText().toString();
                 //Mandamos a llamar a la funcion  registro usuario y le enviamos todos datos que se nececitan
-                registroUsuario(Name, email, password, Mphone);
+                registroUsuario(Name, email, password, Mphone, age);
             }
         });
 
@@ -68,8 +71,8 @@ public class registro extends AppCompatActivity {
             }
         });
     }
-// Funcion para registrar uusarios con el metodo de createUserWithEmailAndPassword
-    private void registroUsuario(String Name, String Email, String Password, String Phone) {
+    // Funcion para registrar uusarios con el metodo de createUserWithEmailAndPassword
+    private void registroUsuario(String Name, String Email, String Password, String Phone, String age) {
         mAuth.createUserWithEmailAndPassword(Email, Password).addOnCompleteListener
                 (this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -84,7 +87,7 @@ public class registro extends AppCompatActivity {
                             //En caso de que falle el registro se mandara un mesaje de fallo
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
                             ///Toast.makeText(registro.this, "Authentication failed.",
-                                  //  Toast.LENGTH_SHORT).show();
+                            //  Toast.LENGTH_SHORT).show();
                         }
 
                     }
@@ -92,14 +95,15 @@ public class registro extends AppCompatActivity {
     }
     // En esta funcion guardamos datos en firebase
     private void  userData(String Name, String Email, String Password, String Phone){
-
+        String id = mAuth.getCurrentUser().getUid();
         Map<String, Object> User = new HashMap<>();
+        User.put("id", id);
         User.put("Name", Name);
         User.put("Email", Email);
         User.put("Password", Password);
         User.put("Phone", Phone);
-        db.collection("User").document(Email)
-                .set(User)
+        User.put("age", age);
+        db.collection("User").document(id).set(User)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
