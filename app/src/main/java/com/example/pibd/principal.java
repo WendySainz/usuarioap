@@ -1,5 +1,7 @@
 package com.example.pibd;
 
+import static android.app.PendingIntent.getActivity;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -40,7 +42,7 @@ public class principal extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.container,favoriteFragment).commit();
                         return true;
                     case R.id.profile:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.container,profileFragment).commit();
+                        startActivity(new Intent(getApplicationContext(),UserProfile.class));
                         return true;
                 }
 

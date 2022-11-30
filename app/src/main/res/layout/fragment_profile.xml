@@ -1,223 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ProfileFragment">
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/header"
+            android:background="@drawable/header_bg"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_marginTop="25dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/ic_user_circle"/>
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wiliam Snoe"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:textSize="21sp"/>
+        </LinearLayout>
+    </RelativeLayout>
 
     <LinearLayout
-        android:id="@+id/title_bar"
-        android:layout_width="match_parent"
+        android:layout_width="360dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <RelativeLayout
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_marginTop="45dp">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:paddingLeft="25dp"
             android:layout_width="match_parent"
-            android:layout_height="80dp">
-
+            android:layout_height="wrap_content">
             <ImageView
-                android:id="@+id/clear"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:layout_marginLeft="20dp"
-                android:src="@drawable/ic_baseline_clear_24"/>
-
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_baseline_person_24"/>
             <TextView
-                android:id="@+id/titulo"
+                android:id="@+id/datanombre"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="40dp"
-                android:layout_marginLeft="20dp"
-                android:textSize="25sp"
-                android:textColor="#242424"
-                android:text="Mi perfil" />
+                android:paddingLeft="20dp"
+                android:text="Wiliam@gmail.com"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal"
+            android:paddingLeft="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_baseline_email_24"/>
+            <TextView
+                android:id="@+id/datacorreo"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:text="+266 225 225"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal"
+            android:paddingLeft="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_baseline_face_retouching_natural_24"/>
+            <TextView
+                android:id="@+id/dataedad"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:text="Add to group"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal"
+            android:paddingLeft="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_baseline_local_phone_24"/>
+            <TextView
+                android:id="@+id/datatelefono"
 
-        </RelativeLayout>
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:text="Show all comments"/>
+        </LinearLayout>
     </LinearLayout>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/title_bar"
-        android:fillViewport="true">
+    <Button
+        android:id="@+id/logout"
+        android:textColor="#fff"
+        android:background="@drawable/buttonstyle"
+        android:layout_marginTop="35dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cerrar Sesion"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="130dp"
-                android:background="@color/white"
-                android:layout_marginTop="10dp">
-
-                <ImageView
-                    android:id="@+id/profile_image"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_marginLeft="13dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_baseline_insert_photo_24" />
-
-                <TextView
-                    android:id="@+id/cambiarfoto"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Cambiar mi foto de perfil"
-                    android:textColor="#242424"
-                    android:textSize="20sp"
-                    android:layout_toRightOf="@id/profile_image"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="35dp"/>
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/cambiarfoto"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_baseline_keyboard_arrow_right_24"/>
-
-
-            </RelativeLayout>
-
-
-            <!--EDITAR DATOS -->
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="360dp"
-                android:background="@color/white"
-                android:layout_marginTop="10dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/txteditar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Editar datos"
-                    android:textSize="20sp"
-                    android:textColor="#242424"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="20dp"/>
-
-
-                <!--Apartado NOMBRE -->
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/txtnombre"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/txteditar"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="5dp"
-                    android:hint="Nombre Completo">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/datanombre"
-                        android:layout_width="match_parent"
-                        android:backgroundTint="@color/white"
-                        android:layout_height="wrap_content"
-                        android:text="Alejandro Solano" />
-
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <!--Apartado EDAD -->
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/txtedad"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/txtnombre"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="5dp"
-                    android:hint="Edad">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/dataedad"
-                        android:layout_width="match_parent"
-                        android:backgroundTint="@color/white"
-                        android:layout_height="wrap_content"
-                        android:text="20" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-
-                <!--Apartado CORREO -->
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/txtcorreo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/txtedad"
-                    android:layout_marginLeft="5dp"
-                    android:hint="Correo">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/datacorreo"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/white"
-                        android:text="dhernandez15@ucol.mx"/>
-
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <!--Apartado TELEFONO -->
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/txttelefono"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/txtcorreo"
-                    android:layout_marginLeft="5dp"
-                    android:hint="Teléfono">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/datatelefono"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/white"
-                        android:text="3141430910"/>
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-
-                <Button
-                    android:id="@+id/btncambios"
-                    android:layout_width="200dp"
-                    android:layout_height="60dp"
-                    android:layout_below="@id/txttelefono"
-                    android:layout_centerHorizontal="true"
-                    android:backgroundTint="#FF9A00"
-                    android:elevation="10dp"
-                    android:layout_marginTop="10dp"
-                    android:text="Guardar cambios"
-                    android:textStyle="bold"
-                    android:textColor="@color/white"
-                    android:textSize="15dp"
-                    app:cornerRadius="25dp" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:background="@color/white">
-
-                <TextView
-                    android:id="@+id/logout"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"
-                    android:text="Cerrar sesión"
-                    android:textColor="#242424"
-                    android:textSize="20sp" />
-
-            </RelativeLayout>
-
-        </LinearLayout>
-
-    </ScrollView>
-</RelativeLayout>
+</LinearLayout>
